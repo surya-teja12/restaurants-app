@@ -1,0 +1,7 @@
+
+menuitemss <> restaurant
+        restaurant <> [menuitems]
+            
+orders <> orderitem
+        orderitem <> [order]
+            

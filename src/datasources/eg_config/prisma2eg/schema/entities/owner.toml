@@ -1,0 +1,13 @@
+[id]
+  type = "Number"
+
+[email]
+  type = "String"
+  multilingual = true
+
+[name]
+  type = "String"
+  multilingual = true
+  autoSuggestion = true
+  encrypted = true
+

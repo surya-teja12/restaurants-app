@@ -1,0 +1,7 @@
+[id]
+  type = "Number"
+
+[name]
+  type = "String"
+  multilingual = true
+

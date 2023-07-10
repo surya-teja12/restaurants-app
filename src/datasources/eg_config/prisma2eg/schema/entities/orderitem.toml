@@ -1,0 +1,15 @@
+[id]
+  type = "Number"
+
+[menuItemId]
+  type = "Number"
+
+[quantity]
+  type = "Number"
+
+[order]
+  type = "Object"
+
+[orderId]
+  type = "Number"
+

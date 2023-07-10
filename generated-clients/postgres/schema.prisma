@@ -1,0 +1,85 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "./generated-clients/postgres"
+  previewFeatures = ["metrics"]
+  maxConnections = 200
+  apiVersion = "7.4"
+  requestTimeout = 90000
+  node = "http://elasticsearch:9200"
+  sniffOnStart = true
+  ds = "es" 
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = "postgres://postgres:postgres@localhost:5432/test"
+}
+
+model Owner {
+  id      Int      @id @default(autoincrement())
+  email   String   @unique ///@multilingual
+  name    String?  ///@multilingual @autoSuggestion @encrypted
+}
+
+model Restaurant {
+  id         Int        @id @default(autoincrement())
+  createdAt  DateTime   @default(now())
+  name      String
+  since  DateTime
+  isOpen  Boolean    @default(false)
+  opsStartTime DateTime
+  opsEndTime DateTime
+  ownerId   Int?
+  slug     String    @unique
+  description String?
+  location String
+  menuItems MenuItems[]
+}
+
+model Category {
+  id    Int    @id @default(autoincrement())
+  name  String ///@multilingual
+}
+
+model MenuItems {
+  id  Int @id @default(autoincrement())
+  name String  
+  description String?
+  price Int
+  couponCode String[]
+  restaurant Restaurant @relation(fields: [restaurantId], references: id) ///denormalize:['location','city.name']
+  restaurantId  Int
+}
+
+model Order {
+  id Int @id @default(autoincrement())
+  fromRestaurant Int  
+  orderStatus OrderStatus 
+  placedAt DateTime?
+  fulfilledAt DateTime?
+  orderItems OrderItem[]
+}
+
+model OrderItem {
+  id Int @id @default(autoincrement())
+  menuItemId Int
+  quantity Int
+  order Order @relation(fields: [orderId], references: id)
+  orderId Int
+}
+
+enum OrderStatus {
+  INITIATED
+  NOT_INITIATED
+  WAITING_FOR_APPROVAL_FROM_RESTAURANT
+  WAITING_FOR_DELIVERY_PARTNER
+  PLACED
+  PICKUP_BY_DELIVERY_PARTNER
+  DELIVERED
+  READY_TO_PICKUP
+}
+
+
+
+
+///I need this line of code

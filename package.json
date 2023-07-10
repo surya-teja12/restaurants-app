@@ -1,0 +1,1 @@
+{"type":"module","name":"mindgrp-cli-prisma-eg","version":"1.0.0","description":"","main":"generate-eg.js","scripts":{"test":"echo \"Error: no test specified\" && exit 1"},"keywords":[],"author":"","license":"ISC","dependencies":{"@prisma/client":"^4.16.2","commander":"^11.0.0","fs":"^0.0.1-security","json2toml":"^5.0.0","path":"^0.12.7","prisma":"^4.16.2"}}

@@ -1,0 +1,3 @@
+[menuitems]
+                    restaurant.{location}
+                    restaurant.city{name}

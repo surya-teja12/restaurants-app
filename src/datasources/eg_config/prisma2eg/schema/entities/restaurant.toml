@@ -1,0 +1,36 @@
+[id]
+  type = "Number"
+
+[createdAt]
+  type = "Date"
+
+[name]
+  type = "String"
+
+[since]
+  type = "Date"
+
+[isOpen]
+  type = "Boolean"
+
+[opsStartTime]
+  type = "Date"
+
+[opsEndTime]
+  type = "Date"
+
+[ownerId]
+  type = "Number"
+
+[slug]
+  type = "String"
+
+[description]
+  type = "String"
+
+[location]
+  type = "String"
+
+[menuItems]
+  type = "Object"
+

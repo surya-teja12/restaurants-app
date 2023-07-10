@@ -1,0 +1,7 @@
+ds = es
+requestTimeout = 90000
+maxConnections = 200
+sniffOnStart = true
+apiVersion = 7.4
+node = http://elasticsearch:9200
+engineType = library
